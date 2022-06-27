@@ -1,10 +1,10 @@
-@IssueReporter @LippiaTestManager @DEV001_000127
+@IssueReporter @LippiaTestManager @DEV001_000147
 Feature: Issues
 
   Background:
     Given I perform the Token Request and save the token
 
-  @Regresion @DEV001_000124
+  @Regresion @DEV001_000144
   Scenario Outline: Obtengo los proyectos por gitlab token
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<inputParameters>'
     Then I will get the proper status code '<statusCode>'
@@ -13,7 +13,7 @@ Feature: Issues
       | jsonName                                                     | statusCode | operation | inputParameters                        | entity                |
       | LippiaTestManager/IssueReporter/rq_get_projects_gitlab_token | 201        | POST      | gitlabToken:glpat-dtkmdq2UMiZbd3e_E6t5 | GETPROJECTSGITLAB_LTM |
 
-  @Regresion @DEV001_000125
+  @Regresion @DEV001_000145
   Scenario Outline: Obtengo los tipos de issues para gitlab
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y ''
     Then I will get the proper status code '<statusCode>'
@@ -22,7 +22,7 @@ Feature: Issues
       | jsonName                                                   | statusCode | operation | entity                   |
       | LippiaTestManager/IssueReporter/rq_get_issues_types_gitlab | 201        | POST      | GETISSUESTYPESGITLAB_LTM |
 
-  @Regresion @Smoke @DEV001_000126
+  @Regresion @Smoke @DEV001_000146
   Scenario Outline: Se crea un issue para un proyecto de gitlab
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<inputParameters>'
     Then I will get the proper status code '<statusCode>'
