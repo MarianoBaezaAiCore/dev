@@ -1,10 +1,10 @@
-@FeaturesT @LippiaTestManager @DEV001_000364
+@FeaturesT @LippiaTestManager @DEV001_000386
 Feature: Features
 
   Background:
     Given I perform the Token Request and save the token
 
-  @Regresion @Smoke @Ignore @DEV001_000360
+  @Regresion @Smoke @Ignore @DEV001_000382
   Scenario Outline: Se actualiza un feature
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<parameters>'
     Then I will get the proper status code '<statusCode>'
@@ -13,7 +13,7 @@ Feature: Features
       | jsonName                                     | statusCode | operation | parameters                                                                                        | entity            |
       | LippiaTestManager/Features/rq_update_feature | 200        | PATCH     | featureId:e62cdafe-9be8-4b95-957b-6b7bb142c326,currentUserId:ea648f38-5a6b-4cf6-bf8b-b2239549649b | UPDATEFEATURE_LTM |
 
-  @Regresion @Smoke @Ignore @DEV001_000361
+  @Regresion @Smoke @Ignore @DEV001_000383
   Scenario Outline: Se actualizan los test cases mediante un feature id
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<parameters>'
     Then I will get the proper status code '<statusCode>'
@@ -22,7 +22,7 @@ Feature: Features
       | jsonName                                                      | statusCode | operation | parameters                                                                                                                                        | entity                         |
       | LippiaTestManager/Features/rq_update_test_cases_by_feature_id | 200        | PUT       | featureId:e62cdafe-9be8-4b95-957b-6b7bb142c326,currentUserId:ea648f38-5a6b-4cf6-bf8b-b2239549649b,testCaseId:321e44d3-1243-4810-9514-939a1b17dd7d | UPDATETESTCASESBYFEATUREID_LTM |
 
-  @Regresion @Smoke @Ignore @DEV001_000362
+  @Regresion @Smoke @Ignore @DEV001_000384
   Scenario Outline: Se elimina un feature por id
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<parameters>'
     Then I will get the proper status code '<statusCode>'
@@ -31,7 +31,7 @@ Feature: Features
       | jsonName                                           | statusCode | operation | parameters                                     | entity     |
       | LippiaTestManager/Features/rq_delete_feature_by_id | 200        | DELETE    | featureId:e62cdafe-9be8-4b95-957b-6b7bb142c326 | DELETE_LTM |
 
-  @Regresion @Smoke @Ignore @DEV001_000363
+  @Regresion @Smoke @Ignore @DEV001_000385
   Scenario Outline: Se elimina un test case por feature id
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<parameters>'
     Then I will get the proper status code '<statusCode>'
@@ -40,7 +40,7 @@ Feature: Features
       | jsonName                                                     | statusCode | operation | parameters                                     | entity     |
       | LippiaTestManager/Features/rq_delete_test_case_by_feature_id | 200        | DELETE    | featureId:e62cdafe-9be8-4b95-957b-6b7bb142c326 | DELETE_LTM |
 
-  @Regresion @DEV001_000359
+  @Regresion @DEV001_000381
   Scenario Outline: Se obtiene un feature file
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<parameters>'
     Then I will get the proper status code '<statusCode>'
@@ -49,7 +49,7 @@ Feature: Features
       | jsonName                                       | statusCode | operation | parameters                                     | entity                    |
       | LippiaTestManager/Features/rq_get_feature_file | 200        | GET       | featureId:e62cdafe-9be8-4b95-957b-6b7bb142c326 | GETFEATURESSUGGESTERS_LTM |
 
-  @Regresion @DEV001_000358
+  @Regresion @DEV001_000380
   Scenario Outline: Se obtiene un feature por id
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<parameters>'
     Then I will get the proper status code '<statusCode>'
@@ -58,7 +58,7 @@ Feature: Features
       | jsonName                                        | statusCode | operation | parameters                                     | entity      |
       | LippiaTestManager/Features/rq_get_feature_by_id | 200        | GET       | featureId:e62cdafe-9be8-4b95-957b-6b7bb142c326 | FEATURE_LTM |
 
-  @Regresion @DEV001_000357
+  @Regresion @DEV001_000379
   Scenario Outline: Se obtiene un feature por project id
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<parameters>'
     Then I will get the proper status code '<statusCode>'
