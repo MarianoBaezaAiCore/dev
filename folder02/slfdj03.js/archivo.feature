@@ -1,11 +1,7 @@
-@LippiaTestManagerFront @TestRuns
-Feature: Vista previa archivos
+@TestRuns @LippiaTestManagerFront @IMP001_000003
+Feature: archivo
 
-#Como usuario de LTM
-#Necesito poder previsualizar los adjuntos del test como una calesita
-#Para poder ver las imagenes attacheadas a un test de un test run
-
-  @Smoke @Regresion
+  @Smoke @Regresion @IMP001_000001
   Scenario Outline: Adjuntar archivos a un Test Run Execution.
     Given El cliente realiza el login con el usuario automation.ltm y contraseña 1234
     And se dirije a la pantalla Runs
@@ -14,13 +10,12 @@ Feature: Vista previa archivos
     And el usuario adjunta el archivo <archivo> al <posicion> test
     Then verifico que se adjunto el archivo <archivo> al <posicion> test
 
-    Examples:
-      | runName                   | estado      | opcionTestRun| archivo            | posicion |
-      | Run editado de Automation | IN PROGRESS | Ver          | test_run.PNG       | 1        |
-      | Run editado de Automation | IN PROGRESS | Ver          | Adicionar_test.pdf | 1        |
+    Examples: 
+      | runName                   | estado      | opcionTestRun | archivo            | posicion |
+      | Run editado de Automation | IN PROGRESS | Ver           | test_run.PNG       | 1        |
+      | Run editado de Automation | IN PROGRESS | Ver           | Adicionar_test.pdf | 1        |
 
-
-  @Smoke
+  @Smoke @IMP001_000002
   Scenario Outline: Visualizar archivos en el reporte de un test run desde Proyectos.
     Given El cliente realiza el login con el usuario automation.ltm y contraseña 1234
     And se dirije a la pantalla Proyectos
@@ -31,6 +26,6 @@ Feature: Vista previa archivos
     And hace click sobre el archivo <archivo>
     Then se verifica que se abrio una nueva pestaña para el archivo
 
-    Examples:
-      | proyecto                       | runName                   | opcion | estado      | opcionTestRun  | archivo            |
-      | Proyecto editado de Automation | Run editado de Automation | Runs   | IN PROGRESS | Ir al informe  | Adicionar_test.pdf |
+    Examples: 
+      | proyecto                       | runName                   | opcion | estado      | opcionTestRun | archivo            |
+      | Proyecto editado de Automation | Run editado de Automation | Runs   | IN PROGRESS | Ir al informe | Adicionar_test.pdf |
