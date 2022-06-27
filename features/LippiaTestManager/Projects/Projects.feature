@@ -1,10 +1,10 @@
-@Projects @LippiaTestManager @DEV001_000157
+@Projects @LippiaTestManager @DEV001_000207
 Feature: Projects
 
   Background:
     Given I perform the Token Request and save the token
 
-  @Regresion @Smoke @DEV001_000151
+  @Regresion @Smoke @DEV001_000201
   Scenario Outline: Se actualiza un proyecto por id
     When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'projectId'
     Then I will get the proper status code '<statusCode>'
@@ -13,7 +13,7 @@ Feature: Projects
       | jsonName                                            | statusCode | operation | entity            |
       | LippiaTestManager/Projects/rq_update_projects_by_id | 200        | PATCH     | CREATEPROJECT_LTM |
 
-  @Regresion @Smoke @DEV001_000152
+  @Regresion @Smoke @DEV001_000202
   Scenario Outline: Se crea tags para el proyecto por id
     When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'projectId'
     Then I will get the proper status code '<statusCode>'
@@ -23,7 +23,7 @@ Feature: Projects
       | jsonName                                                | statusCode | operation | entity        |
       | LippiaTestManager/Projects/rq_create_project_tags_by_id | 200        | PUT       | CREATETAG_LTM |
 
-  @Regresion @Smoke @DEV001_000148
+  @Regresion @Smoke @DEV001_000198
   Scenario Outline: Se crea un proyecto
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y ''
     Then I will get the proper status code '<statusCode>'
@@ -33,7 +33,7 @@ Feature: Projects
       | jsonName                                     | statusCode | operation | entity            |
       | LippiaTestManager/Projects/rq_create_project | 201        | POST      | CREATEPROJECT_LTM |
 
-  @Regresion @Smoke @DEV001_000156
+  @Regresion @Smoke @DEV001_000206
   Scenario Outline: Se elimina un proyecto
     When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'projectId'
     Then I will get the proper status code '<statusCode>'
@@ -42,7 +42,7 @@ Feature: Projects
       | jsonName                                     | statusCode | operation | entity            |
       | LippiaTestManager/Projects/rq_delete_project | 200        | DELETE    | DELETEPROJECT_LTM |
 
-  @Regresion @Smoke @DEV001_000153
+  @Regresion @Smoke @DEV001_000203
   Scenario Outline: Se elimina un tag de un proyecto
     When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'projectId,tagId'
     Then I will get the proper status code '<statusCode>'
@@ -51,7 +51,7 @@ Feature: Projects
       | jsonName                                         | statusCode | operation | entity     |
       | LippiaTestManager/Projects/rq_delete_project_tag | 200        | DELETE    | DELETE_LTM |
 
-  @Regresion @DEV001_000155
+  @Regresion @DEV001_000205
   Scenario Outline: Se obtiene el filtro de un proyecto
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<inputParameters>'
     Then I will get the proper status code '<statusCode>'
@@ -60,7 +60,7 @@ Feature: Projects
       | jsonName                                                  | statusCode | operation | inputParameters | entity            |
       | LippiaTestManager/Projects/rq_get_projects_filter_by_text | 200        | GET       | text:prueba     | CREATEPROJECT_LTM |
 
-  @Regresion @Ignore @DEV001_000154
+  @Regresion @Ignore @DEV001_000204
   Scenario Outline: Se obtienen todos los agregables de un proyecto
     When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo los parametros: 'id' y seteando 'text:automatizado'
     Then I will get the proper status code '<statusCode>'
@@ -69,16 +69,7 @@ Feature: Projects
       | jsonName                                                    | statusCode | operation | entity            |
       | LippiaTestManager/Projects/rq_get_projects_aggregable_by_id | 200        | GET       | CREATEPROJECT_LTM |
 
-  @Regresion @DEV001_000149
-  Scenario Outline: Se obtienen todos los proyectos
-    When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y ''
-    Then I will get the proper status code '<statusCode>'
-
-    Examples: 
-      | jsonName                                   | statusCode | operation | entity            |
-      | LippiaTestManager/Projects/rq_get_projects | 200        | GET       | CREATEPROJECT_LTM |
-
-  @Regresion @DEV001_000150
+  @Regresion @DEV001_000200
   Scenario Outline: Se obtienen todos los proyectos
     When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'projectId'
     Then I will get the proper status code '<statusCode>'
@@ -86,3 +77,12 @@ Feature: Projects
     Examples: 
       | jsonName                                         | statusCode | operation | entity            |
       | LippiaTestManager/Projects/rq_get_projects_by_id | 200        | GET       | CREATEPROJECT_LTM |
+
+  @Regresion @DEV001_000199
+  Scenario Outline: Se obtienen todos los proyectos
+    When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y ''
+    Then I will get the proper status code '<statusCode>'
+
+    Examples: 
+      | jsonName                                   | statusCode | operation | entity            |
+      | LippiaTestManager/Projects/rq_get_projects | 200        | GET       | CREATEPROJECT_LTM |
