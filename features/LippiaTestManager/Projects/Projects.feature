@@ -1,8 +1,4 @@
-@Projects @LippiaTestManager @PWC001_000030
 Feature: Projects
-
-  Background:
-    Given I perform the Token Request and save the token
 
   @Regresion @Smoke @PWC001_000024
   Scenario Outline: Se actualiza un proyecto por id
