@@ -1,8 +1,4 @@
-@TestRuns @LippiaTestManager @PWC001_000066
 Feature: TestsRuns
-
-  Background:
-    Given I perform the Token Request and save the token
 
   @Regresion @PWC001_000059
   Scenario Outline: Se agrega un Test Case a un test run
