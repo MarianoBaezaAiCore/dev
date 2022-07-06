@@ -1,8 +1,4 @@
-@TestCasesExecutions @LippiaTestManager @PWC001_000044
 Feature: testCaseExecutions
-
-  Background:
-    Given I perform the Token Request and save the token
 
   @Regresion @Smoke @PWC001_000041
   Scenario Outline: Se actualiza el estado de un test case execution
@@ -30,15 +26,6 @@ Feature: testCaseExecutions
     Examples: 
       | jsonName                                                                           | statusCode | operation | inputParameters                                          | entity     |
       | LippiaTestManager/TestCasesExecution/rq_delete_test_cases_executions_by_attachment | 200        | DELETE    | testCaseExecutionId:ffefb999-2360-4987-8f5a-2d1bed722dcf | DELETE_LTM |
-
-  @Regresion @Smoke @Ignore @PWC001_000043
-  Scenario Outline: Se elimina un test case execution por el id
-    When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<inputParameters>'
-    Then I will get the proper status code '<statusCode>'
-
-    Examples: 
-      | jsonName                                                                   | statusCode | operation | inputParameters                                          | entity     |
-      | LippiaTestManager/TestCasesExecution/rq_delete_test_cases_executions_by_id | 200        | DELETE    | testCaseExecutionId:fdab01e3-db70-4b43-9176-c24ce6104c19 | DELETE_LTM |
 
   @Regresion @PWC001_000039
   Scenario Outline: Se obtiene un test case execution
