@@ -1,8 +1,4 @@
-@FeaturesT @LippiaTestManager @PWC001_000016
 Feature: Features
-
-  Background:
-    Given I perform the Token Request and save the token
 
   @Regresion @Smoke @Ignore @PWC001_000012
   Scenario Outline: Se actualiza un feature
