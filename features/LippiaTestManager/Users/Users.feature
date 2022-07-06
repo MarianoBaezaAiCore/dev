@@ -1,8 +1,4 @@
-@LippiaTestManager @Users @PWC001_000085
 Feature: Users
-
-  Background:
-    Given I perform the Token Request and save the token
 
   @Regresion @PWC001_000073
   Scenario Outline: Obtengo los proyectos para guardar la response y utilizarla posteriormente en el update de user credentials por project id
@@ -41,6 +37,16 @@ Feature: Users
       | jsonName                                                         | statusCode | operation | entity              |
       | LippiaTestManager/Users/rq_update_user_credentials_by_project_id | 200        | PUT       | USERCREDENTIALS_LTM |
 
+  @Regresion @Smoke @PWC001_000045
+  Scenario Outline: Se crea un test case
+    When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'projectId'
+    Then I will get the proper status code '<statusCode>'
+    And I save the following fields: 'id' as 'testCaseId'
+
+    Examples: 
+      | jsonName                                         | statusCode | operation | entity             |
+      | LippiaTestManager/TestsCases/rq_create_test_case | 201        | POST      | CREATETESTCASE_LTM |
+
   @Regresion @Smok @PWC001_000077
   Scenario Outline: Se crea un user
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<inputParameters>'
@@ -70,7 +76,16 @@ Feature: Users
       | jsonName                                        | statusCode | operation | entity     |
       | LippiaTestManager/Users/rq_delete_project_by_id | 200        | DELETE    | DELETE_LTM |
 
-  @Regresion @Smoke @PWC001_000080
+  @Regresion @Smoke @Ignore @PWC001_000043
+  Scenario Outline: Se elimina un test case execution por el id
+    When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y '<inputParameters>'
+    Then I will get the proper status code '<statusCode>'
+
+    Examples: 
+      | jsonName                                                                   | statusCode | operation | inputParameters                                          | entity     |
+      | LippiaTestManager/TestCasesExecution/rq_delete_test_cases_executions_by_id | 200        | DELETE    | testCaseExecutionId:fdab01e3-db70-4b43-9176-c24ce6104c19 | DELETE_LTM |
+
+  @Regresion @Smoke
   Scenario Outline: Se elimina un user
     When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'userId'
     Then I will get the proper status code '<statusCode>'
@@ -79,7 +94,7 @@ Feature: Users
       | jsonName                               | statusCode | operation | entity     |
       | LippiaTestManager/Users/rq_delete_user | 200        | DELETE    | DELETE_LTM |
 
-  @Regresion @Smoke @PWC001_000081
+  @Regresion @Smoke
   Scenario Outline: Se elimina un user credential
     When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'userId,userCredentialId'
     Then I will get the proper status code '<statusCode>'
@@ -97,20 +112,11 @@ Feature: Users
       | jsonName                                        | statusCode | operation | entity              |
       | LippiaTestManager/Users/rq_get_user_credentials | 200        | GET       | USERCREDENTIALS_LTM |
 
-  @Regresion @PWC001_000083
-  Scenario Outline: Se obtiene la lista de users
+  @Regresion @PWC001_000046
+  Scenario Outline: Se obtienen test cases
     When Yo realizo una '<operation>' hacia '<entity>' endpoint con el '<jsonName>' y ''
     Then I will get the proper status code '<statusCode>'
 
     Examples: 
-      | jsonName                                 | statusCode | operation | entity   |
-      | LippiaTestManager/Users/rq_get_list_user | 200        | GET_LIST  | USER_LTM |
-
-  @Regresion @Smoke @PWC001_000084
-  Scenario Outline: Se obtiene un user
-    When Realizo un '<operation>' hacia '<entity>' con el json '<jsonName>' obteniendo: 'userId'
-    Then I will get the proper status code '<statusCode>'
-
-    Examples: 
-      | jsonName                            | statusCode | operation | entity   |
-      | LippiaTestManager/Users/rq_get_user | 200        | GET       | USER_LTM |
+      | jsonName                                       | statusCode | operation | entity             |
+      | LippiaTestManager/TestsCases/rq_get_test_cases | 200        | GET       | CREATETESTCASE_LTM |
