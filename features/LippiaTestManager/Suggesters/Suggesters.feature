@@ -1,8 +1,4 @@
-@Suggesters @LippiaTestManager @PWC001_000037
 Feature: Suggesters
-
-  Background:
-    Given I perform the Token Request and save the token
 
   @Regresion @PWC001_000035
   Scenario Outline: Se obtienen los suggesters de un features
