@@ -1,8 +1,4 @@
-@IssueReporter @LippiaTestManager @PWC001_000020
 Feature: Issues
-
-  Background:
-    Given I perform the Token Request and save the token
 
   @Regresion @PWC001_000017
   Scenario Outline: Obtengo los proyectos por gitlab token
